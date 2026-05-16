@@ -28,6 +28,11 @@ public class JavaTowerDefense {
 	public static void main(String[] args) {
 		enemies = new ArrayList<>();
 		towers = new ArrayList<>();
+		path = new ArrayList<>();
+
+		for(int i = 100; i <= 700; i += 1) {
+			path.add(new Vector2((float) i, (float) i));
+		}
 
 		renderer = new Renderer();
 		renderer.setPreferredSize(new Dimension(WIDTH, HEIGHT)); //https://github.com/ImKennyYip/snake-java/blob/master/SnakeGame.java
