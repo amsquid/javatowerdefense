@@ -17,7 +17,7 @@ public class TestEnemy extends Enemy {
 	}
 
 	@Override
-	public void move() {
+	public void step() {
 
 	}
 }
