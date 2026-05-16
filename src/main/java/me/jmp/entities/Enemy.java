@@ -17,7 +17,11 @@ public abstract class Enemy {
 		this.position = new Vector2(0, 0);
 	}
 
-	public abstract void move();
+	/***
+	 * Run every time the enemy takes a step
+	 * Should not be in control of actually moving the player
+	 */
+	public abstract void step();
 
 	public Vector2 getPosition() {
 		return position;
