@@ -27,7 +27,7 @@ public class Renderer extends JPanel {
 
 		for(Enemy enemy : JavaTowerDefense.getEnemies()) {
 			g.setColor(Color.WHITE);
-			g.drawOval(
+			g.fillOval(
 				(int) enemy.getPosition().x - (entityScale / 2),
 				(int) enemy.getPosition().y - (entityScale / 2),
 				entityScale,
