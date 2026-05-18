@@ -1,29 +1,22 @@
 package me.jmp.entities;
 
+import me.jmp.JavaTowerDefense;
 import me.jmp.math.Vector2;
 
 public abstract class Enemy {
-	protected Vector2 position;
-
-	public Enemy(Vector2 position) {
-		this.position = position;
+	public int pathIndex = 0;
+	public final int speed;
+	public final double damage;
+	
+	//https://stackoverflow.com/questions/2327509/abstract-class-with-final-uninitialized-field
+	protected Enemy(int speed, double damage) {
+		this.speed = speed;
+		this.damage = damage;
 	}
 
-	public Enemy(float x, float y) {
-		this.position = new Vector2(x, y);
-	}
-
-	public Enemy() {
-		this.position = new Vector2(0, 0);
-	}
-
-	/***
-	 * Run every time the enemy takes a step
-	 * Should not be in control of actually moving the player
-	 */
 	public abstract void step();
 
 	public Vector2 getPosition() {
-		return position;
+		return JavaTowerDefense.getPathingPoints().get(pathIndex);
 	}
 }
