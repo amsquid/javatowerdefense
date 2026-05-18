@@ -6,8 +6,6 @@ import me.jmp.entities.Enemy;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
 
 public class Renderer extends JPanel {
 
