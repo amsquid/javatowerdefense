@@ -25,7 +25,9 @@ public class JavaTowerDefense {
 	public static final int WIDTH = 800;
 	public static final int HEIGHT = 800;
 
-	public float health = 1.0f;
+	public static float health = 1.0f;
+
+	public static long ticks = 0;
 
 	public static void main(String[] args) {
 		enemies = new ArrayList<>();
@@ -49,7 +51,6 @@ public class JavaTowerDefense {
 		jFrame.pack(); //https://github.com/ImKennyYip/snake-java/blob/master/App.java
 		renderer.requestFocus();
 
-		enemies.add(new TestEnemy());
 	
 		//https://www.baeldung.com/java-timer-and-timertask
 		new Timer().schedule(new GameTimer(), 0, 10);
@@ -62,7 +63,7 @@ public class JavaTowerDefense {
 	public static ArrayList<Tower> getTowers() {
 		return towers;
 	}
-	
+
 	public static ArrayList<Vector2> getPathingPoints() {
 		return path;
 	}
@@ -70,7 +71,19 @@ public class JavaTowerDefense {
 	private static class GameTimer extends TimerTask {
 		@Override
 		public void run() {
-			System.out.println("TICK");
+			if(ticks % 100 == 0) 
+				enemies.add(new TestEnemy());
+
+			for(int i = 0; i < enemies.size(); i++) {
+				Enemy enemy = enemies.get(i);
+				enemy.pathIndex++;
+				if(enemy.pathIndex == path.size()) {
+					enemies.remove(i);
+					i--;
+				}
+			}
+
+			ticks++;
 			renderer.repaint();
 		}
 	}
