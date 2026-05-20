@@ -19,8 +19,8 @@ public class Renderer extends JPanel {
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, JavaTowerDefense.WIDTH, JavaTowerDefense.HEIGHT);
 
+		g.setColor(Color.WHITE);
 		for(Enemy enemy : JavaTowerDefense.enemies) {
-			g.setColor(Color.WHITE);
 			g.fillOval(
 				(int) enemy.getPosition().x - (entityScale / 2),
 				(int) enemy.getPosition().y - (entityScale / 2),
@@ -28,7 +28,11 @@ public class Renderer extends JPanel {
 				entityScale
 			);
 		}
-		//}
+
+		g.setColor(Color.GRAY);
+		if(JavaTowerDefense.currentAction == Actions.SHOP) {
+			g.fillRect(0, 600, 800, 200);
+		}
 
 		Toolkit.getDefaultToolkit().sync(); //https://stackoverflow.com/questions/19480076/java-animation-stutters-when-not-moving-mouse-cursor
 	}

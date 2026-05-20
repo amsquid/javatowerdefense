@@ -50,4 +50,11 @@ public class Vector2 {
 		}
 		return path;
 	}
+
+	public static Vector2 getMidwayPoint(Vector2 origin, Vector2 target, float distancePercent) {
+		return new Vector2(
+			(int) Math.floor(distancePercent * (target.x - origin.x) + origin.x),
+			(int) Math.floor(distancePercent * (target.y - origin.y) + origin.y)
+		);
+	}
 }

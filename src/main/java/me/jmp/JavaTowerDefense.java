@@ -29,6 +29,8 @@ public class JavaTowerDefense {
 	public static float health = 1.0f;
 	public static long ticks = 0;
 
+	public static Actions currentAction = Actions.NONE;
+
 	public static void main(String[] args) {
 		enemies = new ArrayList<>();
 		towers = new ArrayList<>();
@@ -44,14 +46,19 @@ public class JavaTowerDefense {
 
 		renderer = new Renderer();
 		renderer.setPreferredSize(new Dimension(WIDTH, HEIGHT)); //https://github.com/ImKennyYip/snake-java/blob/master/SnakeGame.java
-	
+
 		jFrame = new JFrame("Java Tower Defense");
 		jFrame.add(renderer, BorderLayout.CENTER);
+		renderer.addKeyListener(new KeyboardInput());
+
 		jFrame.setSize(WIDTH, HEIGHT);
 		jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		jFrame.setLocationRelativeTo(null);
 		jFrame.setResizable(false);
+		jFrame.setFocusable(true);
+		jFrame.setFocusTraversalKeysEnabled(true);
 		jFrame.setVisible(true);
+
 		jFrame.pack(); //https://github.com/ImKennyYip/snake-java/blob/master/App.java
 		renderer.requestFocus();
 
@@ -81,7 +88,7 @@ public class JavaTowerDefense {
 	}
 
 	//https://stackoverflow.com/questions/21997130/how-to-use-keylistener-with-jframe
-	private class KeyboardInput implements KeyListener {
+	private static class KeyboardInput implements KeyListener {
 		@Override
 		public void keyPressed(KeyEvent e) {
 
@@ -94,7 +101,14 @@ public class JavaTowerDefense {
 
 		@Override
 		public void keyTyped(KeyEvent e) {
-
+			switch(e.getKeyCode()) {
+				case KeyEvent.VK_TAB:
+					if(currentAction == Actions.NONE) {
+						currentAction = Actions.SHOP;
+					} else {
+						currentAction = Actions.NONE;
+					}
+			}
 		}
 	}
 }
