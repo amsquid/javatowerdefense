@@ -7,6 +7,8 @@ import me.jmp.math.Vector2;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -75,6 +77,24 @@ public class JavaTowerDefense {
 
 			ticks++;
 			renderer.repaint();
+		}
+	}
+
+	//https://stackoverflow.com/questions/21997130/how-to-use-keylistener-with-jframe
+	private class KeyboardInput implements KeyListener {
+		@Override
+		public void keyPressed(KeyEvent e) {
+
+		}
+
+		@Override
+		public void keyReleased(KeyEvent e) {
+
+		}
+
+		@Override
+		public void keyTyped(KeyEvent e) {
+
 		}
 	}
 }
