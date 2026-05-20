@@ -91,23 +91,22 @@ public class JavaTowerDefense {
 	private static class KeyboardInput implements KeyListener {
 		@Override
 		public void keyPressed(KeyEvent e) {
-
 		}
 
 		@Override
 		public void keyReleased(KeyEvent e) {
-
 		}
 
 		@Override
 		public void keyTyped(KeyEvent e) {
-			switch(e.getKeyCode()) {
-				case KeyEvent.VK_TAB:
+			switch(e.getKeyChar()) {
+				case '0':
 					if(currentAction == Actions.NONE) {
 						currentAction = Actions.SHOP;
 					} else {
 						currentAction = Actions.NONE;
 					}
+					break;
 			}
 		}
 	}
