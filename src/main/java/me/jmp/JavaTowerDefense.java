@@ -32,9 +32,13 @@ public class JavaTowerDefense {
 		towers = new ArrayList<>();
 		path = new ArrayList<>();
 
-		for(int i = 100; i <= 700; i += 1) {
-			path.add(new Vector2((float) i, (float) i));
-		}
+		ArrayList<Vector2> pathingTargets = new ArrayList<>();
+		pathingTargets.add(new Vector2(100, 100));
+		pathingTargets.add(new Vector2(700, 100));
+		pathingTargets.add(new Vector2(100, 700));
+		pathingTargets.add(new Vector2(700, 700));
+
+		path = Vector2.createPathing(pathingTargets, 1);
 
 		renderer = new Renderer();
 		renderer.setPreferredSize(new Dimension(WIDTH, HEIGHT)); //https://github.com/ImKennyYip/snake-java/blob/master/SnakeGame.java

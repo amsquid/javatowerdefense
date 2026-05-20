@@ -3,6 +3,7 @@ package me.jmp;
 import javax.swing.JPanel;
 
 import me.jmp.entities.Enemy;
+import me.jmp.math.Vector2;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -31,6 +32,16 @@ public class Renderer extends JPanel {
 				entityScale
 			);
 		}
+
+		//g.setColor(Color.WHITE);
+		//for(Vector2 point : JavaTowerDefense.path) {
+		//	g.fillOval(
+		//		(int) point.x - (entityScale / 2),
+		//		(int) point.y - (entityScale / 2),
+		//		entityScale,
+		//		entityScale
+		//	);
+		//}
 
 		Toolkit.getDefaultToolkit().sync(); //https://stackoverflow.com/questions/19480076/java-animation-stutters-when-not-moving-mouse-cursor
 	}
