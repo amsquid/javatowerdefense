@@ -17,6 +17,6 @@ public abstract class Enemy {
 	public abstract void step();
 
 	public Vector2 getPosition() {
-		return JavaTowerDefense.getPathingPoints().get(pathIndex);
+		return JavaTowerDefense.path.get(pathIndex);
 	}
 }

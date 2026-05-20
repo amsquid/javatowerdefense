@@ -22,7 +22,7 @@ public class Renderer extends JPanel {
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, JavaTowerDefense.WIDTH, JavaTowerDefense.HEIGHT);
 
-		for(Enemy enemy : JavaTowerDefense.getEnemies()) {
+		for(Enemy enemy : JavaTowerDefense.enemies) {
 			g.setColor(Color.WHITE);
 			g.fillOval(
 				(int) enemy.getPosition().x - (entityScale / 2),

@@ -14,19 +14,17 @@ import java.util.TimerTask;
 import javax.swing.JFrame;
 
 public class JavaTowerDefense {
-	private static ArrayList<Enemy> enemies;
-	private static ArrayList<Tower> towers;
-	private static ArrayList<Vector2> path;
+	public static ArrayList<Enemy> enemies;
+	public static ArrayList<Tower> towers;
+	public static ArrayList<Vector2> path;
 
 	private static Renderer renderer;
-
 	private static JFrame jFrame;
 
 	public static final int WIDTH = 800;
 	public static final int HEIGHT = 800;
 
 	public static float health = 1.0f;
-
 	public static long ticks = 0;
 
 	public static void main(String[] args) {
@@ -54,18 +52,6 @@ public class JavaTowerDefense {
 	
 		//https://www.baeldung.com/java-timer-and-timertask
 		new Timer().schedule(new GameTimer(), 0, 10);
-	}
-
-	public static ArrayList<Enemy> getEnemies() {
-		return enemies;
-	}
-
-	public static ArrayList<Tower> getTowers() {
-		return towers;
-	}
-
-	public static ArrayList<Vector2> getPathingPoints() {
-		return path;
 	}
 
 	private static class GameTimer extends TimerTask {
