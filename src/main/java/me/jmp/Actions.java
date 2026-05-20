@@ -2,5 +2,6 @@ package me.jmp;
 
 public enum Actions {
 	NONE,
-	PLACING
+	PLACING,
+	SHOP
 }
